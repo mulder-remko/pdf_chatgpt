@@ -98,4 +98,24 @@ if os.path.exists("verlauf.csv"):
     haeufigste = haeufigkeiten.most_common(5)
     with st.expander("🌟 Häufigste Fragen"):
         for frage_text, anzahl in haeufigste:
+            st.markdown(f"❓ {frage_text} — **{anzahl}x gestellt**") hier muss das korrekt rein: import streamlit as st
+import openai  # schon hier importieren
+
+# 🔒 API-Key hartkodiert, damit er auf jeden Fall genutzt wird
+openai.api_key = "sk-ABC123…dein vollständiger Key…"
+
+import os
+import pickle
+import numpy as np
+from datetime import datetime
+from fpdf import FPDF
+from collections import Counter
+import pandas as pd
+
+# Page-Config MUSS jetzt als allererstes Streamlit-Kommando stehen
+st.set_page_config(page_title="GPT-Service", layout="centered")Antwort"])
+    haeufigkeiten = Counter(df["Frage"])
+    haeufigste = haeufigkeiten.most_common(5)
+    with st.expander("🌟 Häufigste Fragen"):
+        for frage_text, anzahl in haeufigste:
             st.markdown(f"❓ {frage_text} — **{anzahl}x gestellt**")
