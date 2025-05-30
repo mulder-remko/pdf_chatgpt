@@ -3,7 +3,7 @@ import faiss
 import os
 import pickle
 from PyPDF2 import PdfReader
-
+# 1
 def build_index():
     # Modell & Ordner definieren
     model = SentenceTransformer("all-MiniLM-L6-v2")
