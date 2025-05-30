@@ -1,8 +1,8 @@
 import streamlit as st
 import openai
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+# openai.api_key = st.secrets["OPENAI_API_KEY"]
 import os
-# openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 # wenn semantic_data.pkl fehlt,automatisch index bauen
 if not os.path.exists("semantic_data.pkl"):
     from semantic_index import build_index  # du musst build_index in semantic_index.py exportieren
