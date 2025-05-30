@@ -2,19 +2,17 @@ import streamlit as st
 import openai
 import os
 
-# ⚙️ Page-Config MUSS als allererstes kommen!
+# ➊ Page-Config ganz am Anfang
 st.set_page_config(page_title="GPT-Service", layout="centered")
 
-# Jetzt darfst du alles andere machen:
-
-# 🔧 Debug über print (kein st.write vor page_config)
+# ➋ DEBUG via print (erscheint im Build-Log, nicht im App-UI)
 api_key = os.getenv("OPENAI_API_KEY")
-print("DEBUG: OPENAI_API_KEY geladen:", bool(api_key))
+print("DEBUG: OPENAI_API_KEY is set:", bool(api_key))
 
-# OpenAI konfigurieren
+# ➌ OpenAI konfigurieren
 openai.api_key = api_key
 
-# Index bauen, falls nötig
+# ➍ Index bauen, falls nötig
 if not os.path.exists("semantic_data.pkl"):
     from semantic_index import build_index
     build_index()
