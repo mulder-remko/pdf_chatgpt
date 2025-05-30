@@ -2,12 +2,14 @@ import streamlit as st
 import openai
 import os
 
-# ⚙️ Muss direkt nach den Imports stehen!
+# ⚙️ Page-Config MUSS als allererstes kommen!
 st.set_page_config(page_title="GPT-Service", layout="centered")
 
-# 🔧 Debug (optional, kann später entfernt werden)
+# Jetzt darfst du alles andere machen:
+
+# 🔧 Debug über print (kein st.write vor page_config)
 api_key = os.getenv("OPENAI_API_KEY")
-print("DEBUG: OPENAI_API_KEY geladen:", bool(api_key))  # nutzt print statt st.write
+print("DEBUG: OPENAI_API_KEY geladen:", bool(api_key))
 
 # OpenAI konfigurieren
 openai.api_key = api_key
@@ -17,6 +19,7 @@ if not os.path.exists("semantic_data.pkl"):
     from semantic_index import build_index
     build_index()
 
+# Nun alle weiteren Imports
 import pickle
 import numpy as np
 from datetime import datetime
@@ -25,7 +28,6 @@ from collections import Counter
 import pandas as pd
 
 # 🔐 Benutzer eingeben
-st.set_page_config(page_title="GPT-Service", layout="centered")
 nutzer = st.text_input("🔐 Dein Name oder Kürzel:", value="", max_chars=20)
 if not nutzer:
     st.stop()
