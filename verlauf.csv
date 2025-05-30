@@ -1,0 +1,36 @@
+"SM";"Was ist Carel?";"Der Text gibt keine spezifische Definition oder Beschreibung von "Carel". Es wird jedoch im Kontext mehrfach auf eine "Carelplatine" Bezug genommen, was darauf hindeutet, dass "Carel" möglicherweise eine Marke oder ein Hersteller von elektronischen Komponenten oder Systemen ist."
+"SM";"Was ist eine Carelplatine?";"Die Carelplatine ist ein Teil des Innengeräts in einem Heizungs-, Lüftungs- und Klimasystem. Sie speichert Einstellungen und kann Fehler melden, wenn diese Einstellungen unplausibel sind. Bei bestimmten Fehlern kann es notwendig sein, die Carelplatine zu resetten, ein Softwareupdate durchzuführen oder sie sogar auszutauschen."
+"SM";"Was sind schwerwiegende Fehler bei einer SQW?";"Die bereitgestellten Dokumente enthalten keine spezifischen Informationen über schwerwiegende Fehler bei einer SQW."
+"SM";"Was muss ich bei der Kaskadierung einer WKF170 Duo beachten?";"Die bereitgestellten Dokumente enthalten keine spezifischen Informationen zur Kaskadierung einer WKF170 Duo. Es wird empfohlen, das spezifische Handbuch oder die technischen Anweisungen für dieses Modell zu konsultieren."
+"SM";"Was wären 5  sinnvolle Fragen, die ich dir stellen sollte?";"1. Was ist die Bedeutung von "Fehler HD-Schalter ausgelöst" in der Störungsbeseitigung?
+2. Was sollte ich tun, wenn der gleiche Fehler erneut auftritt?
+3. Was sind die möglichen Ursachen für einen sehr hohen Verflüssigungsdruck?
+4. Was bedeutet "Fehler maximale Heißgas Temperatur" in der Störungsbeseitigung?
+5. Was sollte ich tun, wenn eine hohe Überhitzung, niedrige Verdampfungstemperatur oder ein großer Öffnungsgrad des EEV festgestellt wird?"
+"SM";"Kannst du mir alle 5 Fragen detailliert beantworten?";"Leider hast du keine spezifischen Fragen gestellt. Bitte stelle deine Fragen, damit ich sie beantworten kann."
+"SM";"Welche 10 Fragen an dich wären sinnvoll?";"Als KI-Assistent kann ich viele verschiedene Fragen beantworten, aber basierend auf den gegebenen Dokumenten könnten folgende Fragen relevant sein:
+
+1. Was sind die Schritte zur Störungsbeseitigung laut den gegebenen Dokumenten?
+2. Was sollte getan werden, wenn der angezeigte Volumenstrom nicht plausibel ist?
+3. Was sollte getan werden, wenn der gleiche Fehler erneut auftritt?
+4. Was bedeutet es, das gesamte Troubleshooting zu kontrollieren?
+5. Was sollte getan werden, wenn Geräusche festgestellt werden?
+6. Was ist der nächste Schritt, wenn das Austauschen des Verbindungskabels des Volumenstromsensors den Fehler nicht behebt?
+7. Was ist ein EEV und was sollte getan werden, wenn es Probleme damit gibt?
+8. Was ist eine Carelplatine und wann sollte sie ausgetauscht werden?
+9. Wie sollte man vorgehen, wenn keine Auffälligkeiten festgestellt werden?
+10. Was sind die Inhalte der Dokumente "TI_Störungsbeseitigung-WKF-WKM.pdf" und "TI_Störungsbeseitigung-SQW.pdf"?"
+"SM";"Was ist eine Carelplatine und wann sollte sie ausgetauscht werden?";"Eine Carelplatine ist ein Teil des Innengeräts in bestimmten Systemen. Sie sollte ausgetauscht werden, wenn die EEPROM-Einstellungen unplausibel sind (Fehler ID 7013 und ID 7255), trotz des Zurücksetzens des Innengeräts und eines Softwareupdates. Sie sollte auch ausgetauscht werden, wenn alle Sensorwerte der SQW gleichzeitig fehlen oder wenn ein Sensorfehler vorliegt und der Sensor korrekt auf der Platine angeschlossen ist."
+"SM";"Was sind die häufigsten Fehler bei einer SQW?";"Die bereitgestellten Dokumente enthalten keine Informationen über die häufigsten Fehler bei einer SQW."
+"SM";"Was gibt es bei der HTS?";"Die HTS beinhaltet verschiedene Komponenten und Anweisungen für ihre Installation und Wartung. Dazu gehören Kommunikationsmodule (WP 1 und WP 2), ein Bedienmodul, Bus 2 Kommunikation und ein RC Codierwiderstand. Es gibt spezifische Anweisungen für den Aufbau der Elektrik für HTS 205 Duo und HTS 265 Duo, einschließlich der Verwendung von Leistungsquerschnitten entsprechend der mitgelieferten Anschlusskabel und der getrennten Verlegung von Last- und Messleitungen. Es wird auch auf mögliche Störungen hingewiesen, wie den Envelope Alarm, der auftritt, wenn der Kompressor außerhalb der programmierten Einsatzgrenze läuft. In solchen Fällen muss die gesamte Anlage begutachtet werden."
+"SM";"HTS Envelope Alarm";"Ein Envelope Alarm tritt auf, wenn der Kompressor außerhalb der programmierten Einsatzgrenze läuft. Bei einem solchen Fehler muss die gesamte Anlage begutachtet werden. Dieser Fehler wird unter der ID 7256 angezeigt und kann in der Expertenebene unter "Information" → "Wärmepumpe" → "Envelope Status" gefunden werden."
+"SM";"Die HTS geht immer in die Niederdruck Störung";"Wenn die HTS immer in die Niederdruckstörung geht, sollten folgende Punkte überprüft werden:
+
+1. Ist die Kältemittelfüllmenge korrekt?
+2. Ist der Niederdrucksensor oder die Hauptplatine defekt?
+3. Ist das EEV oder der Stellantrieb des EEV defekt?
+4. Ist im Stillstand der Anlage die Verdampfungstemperatur auf demselben Niveau mit der Umgebungstemperatur?
+5. Überprüfen Sie den Anzeigewert des Reglers mit einer Monteurhilfe auf Plausibilität. Ist der Wert plausibel?
+6. Überprüfen Sie die Kältemittelfüllmenge durch Absaugen. 
+
+Wenn nach diesen Überprüfungen keine Auffälligkeiten festgestellt werden können und der Fehler erneut auftritt, sollten Sie das gesamte Troubleshooting kontrollieren und die Daten aufnehmen."
