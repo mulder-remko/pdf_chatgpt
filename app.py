@@ -2,14 +2,17 @@ import streamlit as st
 import openai
 import os
 
-# 🔧 Debug: prüfen, ob der Secret geladen wird
-openai_api_key = os.getenv("OPENAI_API_KEY")
-st.write("🔑 OPENAI_API_KEY geladen:", openai_api_key is not None)
+# ⚙️ Muss direkt nach den Imports stehen!
+st.set_page_config(page_title="GPT-Service", layout="centered")
 
-# ⚙️ OpenAI konfigurieren
-openai.api_key = openai_api_key
+# 🔧 Debug (optional, kann später entfernt werden)
+api_key = os.getenv("OPENAI_API_KEY")
+print("DEBUG: OPENAI_API_KEY geladen:", bool(api_key))  # nutzt print statt st.write
 
-# ⏳ Wenn semantic_data.pkl nicht existiert, Index automatisch bauen
+# OpenAI konfigurieren
+openai.api_key = api_key
+
+# Index bauen, falls nötig
 if not os.path.exists("semantic_data.pkl"):
     from semantic_index import build_index
     build_index()
