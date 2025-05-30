@@ -110,7 +110,7 @@ if os.path.exists("verlauf.csv"):
     haeufigste = haeufigkeiten.most_common(5)
     with st.expander("🌟 Häufigste Fragen"):
         for frage_text, anzahl in haeufigste:
-            st.markdown(f"❓ {frage_text} — **{anzahl}x gestellt**") hier muss das korrekt rein: import streamlit as st
+            st.markdown(f"❓ {frage_text} — **{anzahl}x gestellt**")
 import openai  # schon hier importieren
 
 # 🔒 API-Key hartkodiert, damit er auf jeden Fall genutzt wird
