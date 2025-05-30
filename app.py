@@ -1,43 +1,21 @@
 import streamlit as st
-import openai  # OpenAI schon hier importieren
-
-# 🔒 API-Key hartkodiert, damit er auf jeden Fall genutzt wird
+import openai
+import os
+# wenn semantic_data.pkl fehlt,automatisch index bauen
+if not os.path.exists("semantic_data.pkl"):
+    from semantic_index import build_index  # du musst build_index in semantic_index.py exportieren
+    build_index()
+import pickle
+import numpy as np
+from datetime import datetime
+from fpdf import FPDF
+from collections import Counter
+import pandas as pd
+# Direkt hier deinen Key eintragen – gerade Anführungszeichen!
 openai.api_key = "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"
 
-
-import os
-import pickle
-import numpy as np
-from datetime import datetime
-from fpdf import FPDF
-from collections import Counter
-import pandas as pd
-
-# ⚙️ Page-Config MUSS als allererstes Streamlit-Kommando stehen
-st.set_page_config(page_title="GPT-Service", layout="centered")
-
-
-# ➋ DEBUG via print (erscheint im Build-Log, nicht im App-UI)
-api_key = os.getenv("OPENAI_API_KEY")
-print("DEBUG: OPENAI_API_KEY is set:", bool(api_key))
-
-# ➌ OpenAI konfigurieren
-openai.api_key = api_key
-
-# ➍ Index bauen, falls nötig
-if not os.path.exists("semantic_data.pkl"):
-    from semantic_index import build_index
-    build_index()
-
-# Nun alle weiteren Imports
-import pickle
-import numpy as np
-from datetime import datetime
-from fpdf import FPDF
-from collections import Counter
-import pandas as pd
-
 # 🔐 Benutzer eingeben
+st.set_page_config(page_title="GPT-Service", layout="centered")
 nutzer = st.text_input("🔐 Dein Name oder Kürzel:", value="", max_chars=20)
 if not nutzer:
     st.stop()
@@ -45,6 +23,9 @@ if not nutzer:
 # 🔄 Verlauf initialisieren
 if "verlauf" not in st.session_state:
     st.session_state["verlauf"] = []
+
+# GPT-Key aus Umgebungsvariable
+# openai.api_key = os.getenv("OPENAI_API_KEY")
 
 st.title("🤖 GPT-Servicefragen")
 st.markdown("Frag die KI zu deinen Dokumenten.")
@@ -66,9 +47,7 @@ if frage:
         for i in treffer_idx[0]:
             dokument_info += f"📄 {metadaten[i]}:\n{chunks[i]}\n\n"
 
- 
-        response = openai.chat.completions.create(
-
+        response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "Beantworte die folgende Frage auf Basis dieser Inhalte:\n" + dokument_info},
@@ -106,26 +85,6 @@ if st.button("📄 Verlauf als PDF speichern"):
 # Häufigste Fragen
 if os.path.exists("verlauf.csv"):
     df = pd.read_csv("verlauf.csv", sep=";", names=["Name", "Frage", "Antwort"])
-    haeufigkeiten = Counter(df["Frage"])
-    haeufigste = haeufigkeiten.most_common(5)
-    with st.expander("🌟 Häufigste Fragen"):
-        for frage_text, anzahl in haeufigste:
-            st.markdown(f"❓ {frage_text} — **{anzahl}x gestellt**")
-import openai  # schon hier importieren
-
-# 🔒 API-Key hartkodiert, damit er auf jeden Fall genutzt wird
-openai.api_key = "sk-ABC123…dein vollständiger Key…"
-
-import os
-import pickle
-import numpy as np
-from datetime import datetime
-from fpdf import FPDF
-from collections import Counter
-import pandas as pd
-
-# Page-Config MUSS jetzt als allererstes Streamlit-Kommando stehen
-st.set_page_config(page_title="GPT-Service", layout="centered")
     haeufigkeiten = Counter(df["Frage"])
     haeufigste = haeufigkeiten.most_common(5)
     with st.expander("🌟 Häufigste Fragen"):
