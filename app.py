@@ -47,7 +47,7 @@ if frage:
         for i in treffer_idx[0]:
             dokument_info += f"📄 {metadaten[i]}:\n{chunks[i]}\n\n"
 
- mulder-remko-patch-1
+ 
         response = openai.Chats.Completions.create(
 
             model="gpt-4",
