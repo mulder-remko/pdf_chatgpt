@@ -2,7 +2,7 @@ import streamlit as st
 import openai  # OpenAI schon hier importieren
 
 # 🔒 API-Key hartkodiert, damit er auf jeden Fall genutzt wird
-openai.api_key = "sk-ABC123…dein vollständiger Key…"
+openai.api_key = "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“
 
 import os
 import pickle
