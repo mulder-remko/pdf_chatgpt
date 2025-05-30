@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 import os
-# wenn semantic_data.pkl fehlt, automatisch index bauen
+# wenn semantic_data.pkl fehlt,automatisch index bauen
 if not os.path.exists("semantic_data.pkl"):
     from semantic_index import build_index  # du musst build_index in semantic_index.py exportieren
     build_index()
