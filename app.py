@@ -1,20 +1,26 @@
 import streamlit as st
 import openai
 import os
-# wenn semantic_data.pkl fehlt,automatisch index bauen
+
+# 🔧 Debug: prüfen, ob der Secret geladen wird
+openai_api_key = os.getenv("OPENAI_API_KEY")
+st.write("🔑 OPENAI_API_KEY geladen:", openai_api_key is not None)
+
+# ⚙️ OpenAI konfigurieren
+openai.api_key = openai_api_key
+
+# ⏳ Wenn semantic_data.pkl nicht existiert, Index automatisch bauen
 if not os.path.exists("semantic_data.pkl"):
-    from semantic_index import build_index  # du musst build_index in semantic_index.py exportieren
+    from semantic_index import build_index
     build_index()
+
 import pickle
 import numpy as np
 from datetime import datetime
 from fpdf import FPDF
 from collections import Counter
 import pandas as pd
-# Direkt hier deinen Key eintragen – gerade Anführungszeichen!
-# openai.api_key = "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"
-openai.api_key = os.getenv("OPENAI_API_KEY")
-st.write("🔑 OPENAI_API_KEY loaded:", openai.api_key is not None)
+
 # 🔐 Benutzer eingeben
 st.set_page_config(page_title="GPT-Service", layout="centered")
 nutzer = st.text_input("🔐 Dein Name oder Kürzel:", value="", max_chars=20)
@@ -24,9 +30,6 @@ if not nutzer:
 # 🔄 Verlauf initialisieren
 if "verlauf" not in st.session_state:
     st.session_state["verlauf"] = []
-
-# GPT-Key aus Umgebungsvariable
-# openai.api_key = os.getenv("OPENAI_API_KEY")
 
 st.title("🤖 GPT-Servicefragen")
 st.markdown("Frag die KI zu deinen Dokumenten.")
