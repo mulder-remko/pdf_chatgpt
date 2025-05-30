@@ -48,7 +48,7 @@ if frage:
             dokument_info += f"📄 {metadaten[i]}:\n{chunks[i]}\n\n"
 
  
-        response = openai.Chats.Completions.create(
+        response = openai.chat.completions.create(
 
             model="gpt-4",
             messages=[
