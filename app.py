@@ -1,6 +1,7 @@
 import streamlit as st
 import openai
 import os
+openai.api_key = os.getenv("OPENAI_API_KEY")
 # wenn semantic_data.pkl fehlt,automatisch index bauen
 if not os.path.exists("semantic_data.pkl"):
     from semantic_index import build_index  # du musst build_index in semantic_index.py exportieren
@@ -12,7 +13,8 @@ from fpdf import FPDF
 from collections import Counter
 import pandas as pd
 # Direkt hier deinen Key eintragen – gerade Anführungszeichen!
-openai.api_key = "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"
+
+# openai.api_key = "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"
 
 # 🔐 Benutzer eingeben
 st.set_page_config(page_title="GPT-Service", layout="centered")
