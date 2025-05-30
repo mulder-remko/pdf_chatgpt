@@ -47,7 +47,7 @@ if frage:
         for i in treffer_idx[0]:
             dokument_info += f"📄 {metadaten[i]}:\n{chunks[i]}\n\n"
 
-        response = openai.ChatCompletion.create(
+        response = openai.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "Beantworte die folgende Frage auf Basis dieser Inhalte:\n" + dokument_info},
@@ -56,7 +56,7 @@ if frage:
             temperature=0.2,
             max_tokens=500
         )
-        antwort = response['choices'][0]['message']['content']
+        antwort = response.choices[0].message.content
         st.success(antwort)
 
         # Verlauf speichern
