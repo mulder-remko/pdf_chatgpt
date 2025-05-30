@@ -14,6 +14,7 @@ import pandas as pd
 # Direkt hier deinen Key eintragen – gerade Anführungszeichen!
 # openai.api_key = "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"
 openai.api_key = os.getenv("OPENAI_API_KEY")
+st.write("🔑 OPENAI_API_KEY loaded:", openai.api_key is not None)
 # 🔐 Benutzer eingeben
 st.set_page_config(page_title="GPT-Service", layout="centered")
 nutzer = st.text_input("🔐 Dein Name oder Kürzel:", value="", max_chars=20)
