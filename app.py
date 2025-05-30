@@ -125,7 +125,7 @@ from collections import Counter
 import pandas as pd
 
 # Page-Config MUSS jetzt als allererstes Streamlit-Kommando stehen
-st.set_page_config(page_title="GPT-Service", layout="centered")Antwort"])
+st.set_page_config(page_title="GPT-Service", layout="centered")
     haeufigkeiten = Counter(df["Frage"])
     haeufigste = haeufigkeiten.most_common(5)
     with st.expander("🌟 Häufigste Fragen"):
