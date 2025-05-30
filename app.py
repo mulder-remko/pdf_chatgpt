@@ -1,9 +1,20 @@
 import streamlit as st
-import openai
-import os
+import openai  # OpenAI schon hier importieren
 
-# ➊ Page-Config ganz am Anfang
+# 🔒 API-Key hartkodiert, damit er auf jeden Fall genutzt wird
+openai.api_key = "sk-ABC123…dein vollständiger Key…"
+
+import os
+import pickle
+import numpy as np
+from datetime import datetime
+from fpdf import FPDF
+from collections import Counter
+import pandas as pd
+
+# ⚙️ Page-Config MUSS als allererstes Streamlit-Kommando stehen
 st.set_page_config(page_title="GPT-Service", layout="centered")
+
 
 # ➋ DEBUG via print (erscheint im Build-Log, nicht im App-UI)
 api_key = os.getenv("OPENAI_API_KEY")
