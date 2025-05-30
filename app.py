@@ -47,7 +47,9 @@ if frage:
         for i in treffer_idx[0]:
             dokument_info += f"📄 {metadaten[i]}:\n{chunks[i]}\n\n"
 
-        response = openai.chat.completion.create(
+ mulder-remko-patch-1
+        response = openai.Chats.Completions.create(
+
             model="gpt-4",
             messages=[
                 {"role": "system", "content": "Beantworte die folgende Frage auf Basis dieser Inhalte:\n" + dokument_info},
